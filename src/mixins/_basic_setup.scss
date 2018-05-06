@@ -1,0 +1,97 @@
+// Basic setup
+h1, h1 * { font-size: 3.2rem; }
+h2, h2 * { font-size: 2.4rem; }
+h3, h3 * { font-size: 2rem; }
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+}
+
+p {
+    letter-spacing: 0.5px;
+    font-weight: normal;
+    line-height: 24px;
+    margin-bottom: $mxs;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+h1,h2,h3,h4,h5,h6,p{
+    color: $color-text;
+}
+
+input, button, a.btn {
+    height: $m;
+    padding: ($pxs / 2);
+}
+
+textarea {
+    min-height: ($m * 3);
+    min-width: 100%;
+    resize: vertical;
+    max-height: ($m * 6);
+    padding: ($pxs / 2);
+}
+
+section {
+    padding: $p 0;
+}
+
+section h2 {
+    @include stripe_below($color-primary, 4px);
+}
+
+section:nth-child(odd){
+    background-color: #fff;
+}
+
+section:nth-child(even){
+    background-color: $color-background;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: $font-size-base;
+
+    @include breakpoint('xs-up'){
+        font-size: $font-size-base-tablet;
+    }
+
+    @include breakpoint('md-up'){
+        font-size: $font-size-base-desktop;
+    }
+}
+
+body {
+    background-color: #f3f3f3;
+    font-family: 'Roboto Condensed', 'Verdana', serif;
+}
+
+a {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+img {
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+.color-primary{color:$color-primary;&-bg{background-color:$color-primary;}}
+.color-secondary{color:$color-secondary;&-bg{background-color:$color-secondary;}}
+.color-tertiary{color:$color-tertiary;&-bg{background-color:$color-tertiary;}}
+.color-black{color:black;&-bg{background-color: black;}}
+.color-white{color:white;&-bg{background-color: white;}}
+
+.text--center{text-align:center;}
+.text--uppercase{text-transform: uppercase;}
+
+.hidden{display:none;}

@@ -1,0 +1,53 @@
+@mixin breakpoint($point: 'all-sizes') {
+    @if $point == 'all-sizes' { @content; }
+    @else if $point == 'xs' {
+        @media screen and (max-width: $screen-xs) { @content; }
+    }
+    @else if $point == 'xs-portrait' {
+        @media screen and (max-width: $screen-xs) and (orientation: portrait) { @content; }
+    }
+    @else if $point == 'xs-landscape' {
+        @media screen and (max-width: $screen-xs) and (orientation: landscape) { @content; }
+    }
+    
+    @else if $point == 'xs-up' {
+        @media screen and (min-width: ($screen-xs + 1)){ @content; }
+    }
+    
+    @else if $point == 'sm' {
+        @media screen and (max-width: $screen-sm) { @content; }
+    }
+    @else if $point == 'sm-portrait' {
+        @media screen and (max-width: $screen-sm) and (orientation: portrait) { @content; }
+    }
+    @else if $point == 'sm-landscape' {
+        @media screen and (max-width: $screen-sm) and (orientation: landscape) { @content; }
+    }
+    
+    @else if $point == 'sm-up' {
+        @media screen and (min-width: ($screen-sm + 1)){ @content; }
+    }
+    
+    @else if $point == 'md' {
+        @media screen and (max-width: $screen-md) { @content; }
+    }
+    
+    @else if $point == 'md-portrait' {
+        @media screen and (max-width: $screen-md) and (orientation: portrait) { @content; }
+    }
+    @else if $point == 'md-landscape' {
+        @media screen and (max-width: $screen-md) and (orientation: landscape) { @content; }
+    }
+    
+    @else if $point == 'md-up' {
+        @media screen and (min-width: ($screen-md + 1)){ @content; }
+    }
+    
+    @else if $point == 'lg' {
+        @media screen and (max-width: $screen-lg) { @content; }
+    }
+    
+    @else if $point == 'lg-up' {
+        @media screen and (min-width: ($screen-lg + 1)){ @content; }
+    }
+}

@@ -1,0 +1,29 @@
+// General
+$font-size-base: 14px;
+$font-size-base-tablet: 16px;
+$font-size-base-desktop: 16px;
+
+$color-primary: #20C997;
+$color-secondary: #111111;
+$color-tertiary: #E0E0E1;
+$color-text: #000000;
+$color-background: #f4f4f4;
+
+// _spacing.scss
+$xs: 20px;
+$sm: 40px;
+$lg: 80px;
+
+$m: $sm;
+$M: $lg;
+$mxs: $xs;
+
+$p: $sm;
+$P: $lg;
+$pxs: $xs;
+
+// _breakpoints.scss
+$screen-xs: 767px;
+$screen-sm: 991px;
+$screen-md: 1023px;
+$screen-lg: 1199px;

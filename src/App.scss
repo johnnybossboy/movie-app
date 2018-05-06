@@ -1,0 +1,40 @@
+// Variables MUST be declared before anything else loads
+@import "mixins/variables";
+
+// Load mixins
+@import "mixins/breakpoints";
+@import "mixins/spacing";
+@import "./_bootstrap";
+@import "mixins/components";
+
+// Basic setup
+@import "mixins/basic_setup";
+
+.movie {
+    &--image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.flex {
+    display: flex;
+
+    &-padding {
+        &-left {
+            padding-left: 15px;
+        }
+
+        &-right {
+            padding-right: 15px;
+        }
+    }
+
+    &-justify-between {
+        justify-content: space-between;
+    }
+
+    &-align-center {
+        align-items: center;
+    }
+}
