@@ -1,13 +1,15 @@
 // General
-$font-size-base: 14px;
-$font-size-base-tablet: 16px;
-$font-size-base-desktop: 16px;
+$font-size-base: 16px;
+$font-size-base-tablet: 18px;
+$font-size-base-desktop: 18px;
 
 $color-primary: #20C997;
 $color-secondary: #111111;
 $color-tertiary: #E0E0E1;
 $color-text: #000000;
 $color-background: #f4f4f4;
+
+$navbar-height: 68px;
 
 // _spacing.scss
 $xs: 20px;
@@ -27,3 +29,7 @@ $screen-xs: 767px;
 $screen-sm: 991px;
 $screen-md: 1023px;
 $screen-lg: 1199px;
+
+
+// Overrides
+$color-primary: rgb(200, 80, 80);

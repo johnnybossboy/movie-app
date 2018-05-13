@@ -40,6 +40,47 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        if($(window).width() < 768){
+          $(".menu--rectangle").click(function(){
+            $(".navbar--menu").slideToggle("fast", function(){});
+          });
+        }
+
+        setTimeout(function(){
+          var minimized_elements = $('p.minimize');
+          console.log("minimized elements");
+          console.table(minimized_elements);
+          minimized_elements.each(function(){    
+              var t = $(this).text();        
+              if(t.length < 200) return;
+              
+              $(this).html(
+                  t.slice(0,200)+'<span class="dots">... </span><a class="more">More</a>'+
+                  '<span style="display:none;">'+ t.slice(200,t.length)+' <a  class="less">Less</a></span>'
+              );
+          }); 
+          
+          $('a.more', minimized_elements).click(function(event){
+              event.preventDefault();
+              $(this).hide().prev().hide();
+              $(this).next().show();
+          });
+          
+          $('a.less', minimized_elements).click(function(event){
+              event.preventDefault();
+              $(this).parent().hide().prev().show().prev().show();    
+          });
+        }, 1000);
+
+        setTimeout(function(){
+          $(".video").fadeOut(function(){
+            $(".video").remove();
+          });
+        }, 5000);
+      });
+    </script>
   </body>
 </html>

@@ -64,3 +64,10 @@
   padding:0!important;
   &-xs{@include breakpoint('xs'){padding:0!important;}}
 }
+
+.col-xs-12 .full-width-xs {
+  @media screen and (max-width: 767px){
+    margin-left: -15px;
+    width: calc(100% + 30px);
+  }
+}

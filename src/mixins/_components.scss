@@ -37,6 +37,9 @@
 }
 
 // Components
+.stripe-below {
+    @include stripe_below;
+}
 .card {
     padding: $p;
     border: 1px solid #E8E8E8;
@@ -52,6 +55,12 @@
     
     &.btn--wide {
         width: 100%;
+
+        &-xs {
+            @media screen and (max-width: 767px){
+                width: 100%;
+            }
+        }
     }
     
     &.btn--primary {
@@ -80,6 +89,15 @@
             background-color: darken($color-tertiary, 15%);
         }
     }
+
+    &.btn--quartiary {
+        border: 1px solid lightblue;
+        background-color: lightblue;
+        
+        &:hover {
+            background-color: darken(lightblue, 15%);
+        }
+    }
     
     &:hover {
         cursor: pointer;
@@ -97,8 +115,8 @@
     margin: $mxs;
 }
 
-ul.list {
-	margin-left: -0.75rem;
+@mixin ul_list {
+    margin-left: -0.75rem;
     
 	li {
         display: table-row;
@@ -118,6 +136,22 @@ ul.list {
 	}
 }
 
+ul.list {
+    @include ul_list;
+    
+    &-xs {
+        @media screen and (max-width: 767px){
+            @include ul_list;
+        }
+    }
+
+    &-xs_up {
+        @include breakpoint('xs-up'){
+            @include ul_list;
+        }
+    }
+}
+
 
 .box {
     border: 2px solid grey;
@@ -126,4 +160,20 @@ ul.list {
     color: #fff;
     text-transform: uppercase;
     text-align: center;
+}
+
+.text--highlight {
+    font-style: italic;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
 }
