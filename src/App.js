@@ -9,6 +9,8 @@ import Navbar from './Components/Navbar';
 import Movie from './Components/Movie';
 import PieChart from './Components/PieChart';
 
+import MovieImage from './Components/MovieImage';
+
 
 class App extends Component {
   constructor(){
@@ -56,7 +58,7 @@ class App extends Component {
     var xhr = new XMLHttpRequest();
     // var json_obj;
     var status = false;
-    xhr.open("GET", "http://www.omdbapi.com/?plot=full&t=" + title + "&apikey=6c3a2d45", true);
+    xhr.open("GET", "http://www.omdbapi.com/?t=" + title + "&apikey=6c3a2d45", true);
     xhr.onload = function (e) {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
@@ -126,7 +128,26 @@ class App extends Component {
           <Route path="/featured" render={() => {
             return(
               <div className="App container-fluid mt-navbar featured">
-                <div className="row">
+                <div className="header-image">
+                  <div className="container header--container">
+                    <div className="row">
+                      <div className="col-xs-12 text-center">
+                      <div className="row">
+                        <div className="col-xs-12 text-center clearfix">
+                          <h1 className="stripe-below">{language[this.state.languageIndex].featured}</h1>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-xs-12 text-center clearfix">
+                          <p className="text--highlight text--description">{language[this.state.languageIndex].featuredPageText}</p>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* <div className="row">
                   <div className="col-xs-12 text-center clearfix">
                     <h1 className="stripe-below">{language[this.state.languageIndex].featured}</h1>
                   </div>
@@ -135,7 +156,7 @@ class App extends Component {
                   <div className="col-xs-12 text-center clearfix">
                     <p className="text--highlight text--description">{language[this.state.languageIndex].featuredPageText}</p>
                   </div>
-                </div>
+                </div> */}
 
                 <Movie title="interstellar" />
                 <Movie title="Inception" />
@@ -145,12 +166,12 @@ class App extends Component {
 
           <Route path="/" exact render={() => {
             return (
-              <div>
-                <div className="App container-fluid mt-navbar">
+              <div className="bg-img">
+                <div className="App container-fluid ">
                 
                   {/* START SEARCH COMPONENT */}
                   <div className="row">
-                    <div className="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+                    <div className="col-xs-12 col-sm-8 col-sm-offset-2 text-center mt-navbar">
                       <form onSubmit={this.onSubmitMovieForm}>
                         <input type="text" className="input--width" onChange={this.onChangeMovieInput} placeholder={language[this.state.languageIndex].searchMovieInstruction} />
                         <button type="submit" className="width-100p btn btn--primary btn--wide-xs">{language[this.state.languageIndex].searchButton}</button>
@@ -159,19 +180,33 @@ class App extends Component {
                   </div>
                   {/* EINDE SEARCH COMPONENT */}
 
-                  <div className="row">
+                  <div className="row visible-xs">
                     <div className="col-xs-12 mt text-center">
                       <button type="button" className="width-100p btn btn--quartiary btn--wide-xs">John's Movie DataBase</button>
                     </div>
                   </div>
 
                   {/* START VIDEO */}
-                  <div className="row video"><div className="col-xs-12 text-center mt embed-responsive embed-responsive-16by9">
+                  <div className="row video"><div className="col-xs-12 text-center mt embed-responsive embed-responsive-16by9 max-width-video">
                     <video muted autoPlay="true" className="img-responsive">
                       <source src={require('./img/countdown.mp4')} type="video/mp4" />
                     </video>
                   </div></div>
                   {/* EINDE VIDEO */}
+
+                  {/* START BANNERS */}
+                  <div className={this.state.searchSubmitted ? "row banners mt hidden" : "row banners mt"}>
+                    <div className="col-xs-12 col-md-4 text-center">
+                      <MovieImage title="Interstellar" />
+                    </div>
+                    <div className="col-xs-12 col-md-4 text-center mt-small-xs">
+                      <MovieImage title="Inception" />
+                    </div>
+                    <div className="col-xs-12 col-md-4 text-center mt-small-xs">
+                      <MovieImage title="Continuum" />
+                    </div>
+                  </div>
+                  {/* EINDE BANNERS */}
 
                   {/* START MOVIE COMPONENT */}
                   <div className="row">

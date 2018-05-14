@@ -43,6 +43,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
+        $(".row.banners").hide();
         if($(window).width() < 768){
           $(".menu--rectangle").click(function(){
             $(".navbar--menu").slideToggle("fast", function(){});
@@ -78,6 +79,7 @@
         setTimeout(function(){
           $(".video").fadeOut(function(){
             $(".video").remove();
+            $(".row.banners").show();
           });
         }, 5000);
       });

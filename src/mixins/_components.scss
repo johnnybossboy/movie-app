@@ -177,3 +177,17 @@ ul.list {
     line-height: 0;
     visibility: hidden;
 }
+
+.bg-img {
+    @include bg-img("https://indebuurt.nl/eindhoven/wp-content/uploads/2017/05/bioscoop_goed.jpg");
+}
+
+// .header-image {
+//     margin-top: -32px;
+
+
+//     &--image {
+//         width: 100vw;
+//         height: 300px;
+//     }
+// }
